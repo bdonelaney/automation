@@ -27,7 +27,7 @@ public class SetupTestDriver {
     public  SetupTestDriver() throws MalformedURLException {
         this.browser = System.getProperty("browser") != null ? System.getProperty("browser"):"chrome";
         this.os =  System.getProperty("os") != null ? System.getProperty("os"):"windows";
-        this.node = System.getProperty("node") != null ? System.getProperty("node"):"http://localhost:5555";
+        this.node = System.getProperty("node") != null ? System.getenv("SELENIUM_ADDRESS"):"http://localhost:4444";
         this.env= System.getProperty("env") != null ? System.getProperty("env"):"dev";
 
 
