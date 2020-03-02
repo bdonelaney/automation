@@ -2,7 +2,7 @@ pipeline {
     agent {
         kubernetes {
             label 'functional-test-arunaapp'
-            defaultContainer 'jnlp-agent'
+            defaultContainer 'curl'
         }
     }
 //        stage('Pull source') {
@@ -11,7 +11,8 @@ pipeline {
     stages{
         stage('Prepare test') {
             steps {
-                sh 'mvn test'
+                //sh 'mvn test'
+                sh 'curl -vL http://localhost:4444/wd/hub/static/resource/hub.html'
             }
             post {
                 always {
