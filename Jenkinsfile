@@ -11,16 +11,20 @@ podTemplate(
                       command: '/bin/sh -c',
                       //args: '"umask 0000; /usr/local/bin/run-jnlp-client ${computer.jnlpmac} ${computer.name}"',
                       args: 'cat',
+                      imagePullSecrets: ["artifactorydocker"],
                       alwaysPullImage: false,
                       envVars: [
                         //Heap for jnlp is 1/2, for mvn and surefire process is 1/4 of resourceLimitMemory by default
-                        envVar(key: 'JNLP_MAX_HEAP_UPPER_BOUND_MB', value: '64')
+                        envVar(key: 'JNLP_MAX_HEAP_UPPER_BOUND_MB', value: '64'),
+                        envVar(key: 'JENKINS_URL', value: 'http://10.254.37.109:80'),
+                        envVar(key: 'JENKINS_URL', value: '10.254.37.109:50000')
                       ]),
     //App under test
     containerTemplate(name: 'arunaapp',
                       image: 'etlabvlldvopap2.et.lab:80/docker/arunatest:testcandidate',
                       resourceLimitMemory: '512Mi',
                       alwaysPullImage: true,
+                      imagePullSecrets: ["artifactorydocker"],
                       envVars: [
                         envVar(key: 'SPRING_PROFILES_ACTIVE', value: 'k8sit'),
                         envVar(key: 'SPRING_CLOUD_KUBERNETES_ENABLED', value: 'false')
