@@ -13,6 +13,7 @@ pipeline {
             steps {
                 //sh 'mvn test'
                 sh 'export no_proxy=127.0.0.1,localhost'
+                sh 'sleep 30'
                 sh 'curl -vL http://localhost:4444/wd/hub/static/resource/hub.html'
             }
             post {
