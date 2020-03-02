@@ -5,4 +5,4 @@ Feature: Login Module
     Given Browser is open
     When I login into EY mail
     Then I am able to see the main page
-    Then exit the page
+#    Then exit the page

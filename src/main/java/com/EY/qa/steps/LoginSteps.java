@@ -46,11 +46,11 @@ public class LoginSteps {
         loginPage.verifyMainPage();
     }
 
-    @Then("^exit the page$")
-    public void i_am_able_exit_page() throws Throwable {
-        log.info("Then: exit the page");
-        webApp.stopDriver();
-    }
+//    @Then("^exit the page$")
+//    public void i_am_able_exit_page() throws Throwable {
+//        log.info("Then: exit the page");
+//        webApp.stopDriver();
+//    }
 
     @Then("^Click on logout button$")
     public void i_am_able_logout_page() throws Throwable {
