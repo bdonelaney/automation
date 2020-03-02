@@ -28,7 +28,7 @@ public class LoginPage {
     private static Map<String, String> data;
     private static WebDriver driver;
     private static int timeout = 5;
-    private static final String pageLoadedText = "EY Mail";
+    private static final String pageLoadedText = "Login with Username and Password";
 
     /* Constructors */
     public LoginPage() {
@@ -118,8 +118,8 @@ public class LoginPage {
      */
     public void login() {
         Properties props = ReadProperties.getProperties();
-        String username = props.getProperty("username");
-        String password = props.getProperty("password");
+        String username = "ey";
+        String password = "dummy";
         login(username, password);
     }
 
