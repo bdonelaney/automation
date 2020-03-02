@@ -79,7 +79,7 @@ public class WebApp {
             driver = new RemoteWebDriver(new URL(nodeURL), capability);
             driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
             // driver.manage().window().maximize();
-            driver.get(props.getProperty("url"));
+            driver.get("http://127.0.0.1:3333");
             loggedIn = false;
             return driver;
 
