@@ -70,10 +70,10 @@ public class WebApp {
        // } else {
             nodeURL = System.getenv("SELENIUM_ADDRESS") != null ? System.getenv("SELENIUM_ADDRESS"):"http://localhost:4444" + "/wd/hub";
             DesiredCapabilities capability = DesiredCapabilities.chrome();
-            System.out.println("System.getProperty(\"hostName\")" + System.getProperty("browser"));
+            System.out.println("browser is set as " + System.getProperty("browser"));
             capability.setBrowserName(System.getProperty("browser"));
             ChromeOptions options = new ChromeOptions();
-            options.setExperimentalOption("useAutomationExtension", false);
+            //options.setExperimentalOption("useAutomationExtension", false);
             //capability.setPlatform(Platform.WIN10);
             capability.setCapability(ChromeOptions.CAPABILITY, options);
             driver = new RemoteWebDriver(new URL(nodeURL), capability);
@@ -95,7 +95,8 @@ public class WebApp {
     }
 
     public static LoginPage gotoLoginPage() throws MalformedURLException {
-        driver = getDriver();
+        //driver = getDriver();
+        driver = initializeDriver();
         driver.manage().deleteAllCookies();
         loggedIn = false;
         driver.get(url);
