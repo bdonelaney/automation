@@ -68,7 +68,7 @@ public class WebApp {
 //        if (driver != null) {
 //            return driver;
        // } else {
-            nodeURL = System.getProperty("node")!=null ?System.getProperty("node"):"http://localhost:5555"  + "/wd/hub";
+            nodeURL = System.getenv("SELENIUM_ADDRESS") != null ? System.getenv("SELENIUM_ADDRESS"):"http://localhost:4444" + "/wd/hub";
             DesiredCapabilities capability = DesiredCapabilities.chrome();
             System.out.println("System.getProperty(\"hostName\")" + System.getProperty("browser"));
             capability.setBrowserName(System.getProperty("browser"));
