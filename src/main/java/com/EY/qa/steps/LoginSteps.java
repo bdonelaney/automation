@@ -49,7 +49,7 @@ public class LoginSteps {
     @Then("^exit the page$")
     public void i_am_able_exit_page() throws Throwable {
         log.info("Then: exit the page");
-        WebApp.stopDriver();
+        webApp.stopDriver();
     }
 
     @Then("^Click on logout button$")
