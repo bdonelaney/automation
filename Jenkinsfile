@@ -10,11 +10,13 @@ pipeline {
 //        }
     stages{
         stage('Prepare test') {
-            //requires mysql
-            try {
+            steps {
                 sh 'mvn test'
-            } finally {
-                junit 'target/surefire-reports/*.xml'
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
             }
         }
     }
