@@ -6,11 +6,16 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import com.EY.qa.framework.SetupTestDriver;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
 
 import java.net.MalformedURLException;
 
@@ -37,11 +42,13 @@ public class AllFeaturesRunner extends AbstractTestNGCucumberTests {
 //    }
 
    // @After("@selenium")
-    @After("@cicd")
+    @After
    // @AfterSuite(alwaysRun = true)
     //@AfterMethod (alwaysRun = true)
-    public void takeScreenshot(Scenario scenario) throws MalformedURLException {
+    public void takeScreenshot(Scenario scenario) throws IOException {
+        long epochTime = new Date().getTime();
         scenario.embed(((TakesScreenshot)WebApp.getDriver()).getScreenshotAs(OutputType.BYTES), "image/png");
+        FileUtils.moveFile(((TakesScreenshot) WebApp.getDriver()).getScreenshotAs(OutputType.FILE), new File("screenshot" + epochTime + ".png"));
     }
 
 }
