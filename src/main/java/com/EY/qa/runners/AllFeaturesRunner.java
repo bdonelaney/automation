@@ -43,6 +43,7 @@ public class AllFeaturesRunner extends AbstractTestNGCucumberTests {
 
    // @After("@selenium")
     @After
+    @AfterMethod
    // @AfterSuite(alwaysRun = true)
     //@AfterMethod (alwaysRun = true)
     public void takeScreenshot(Scenario scenario) throws IOException {
