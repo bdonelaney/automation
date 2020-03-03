@@ -47,8 +47,9 @@ public class AllFeaturesRunner extends AbstractTestNGCucumberTests {
     //@AfterMethod (alwaysRun = true)
     public void takeScreenshot(Scenario scenario) throws IOException {
         long epochTime = new Date().getTime();
-        scenario.embed(((TakesScreenshot)WebApp.getDriver()).getScreenshotAs(OutputType.BYTES), "image/png");
+        //scenario.embed(((TakesScreenshot)WebApp.getDriver()).getScreenshotAs(OutputType.BYTES), "image/png");
         FileUtils.moveFile(((TakesScreenshot) WebApp.getDriver()).getScreenshotAs(OutputType.FILE), new File("screenshot" + epochTime + ".png"));
+        System.out.println("wrote screenshot" + epochTime + ".png");
     }
 
 }
