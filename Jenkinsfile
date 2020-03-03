@@ -18,6 +18,7 @@ pipeline {
             }
             post {
                 always {
+                    archiveArtifacts artifacts: '**/*.png'
                     junit 'target/surefire-reports/*.xml'
                 }
             }

@@ -37,15 +37,11 @@ public class AllFeaturesRunner extends AbstractTestNGCucumberTests {
 //    }
 
    // @After("@selenium")
-    //@After("@browser")
+    @After("@cicd")
    // @AfterSuite(alwaysRun = true)
     //@AfterMethod (alwaysRun = true)
-    public void killBrowser(Scenario scenario) throws MalformedURLException {
-        if (scenario.isFailed()) {
-            scenario.embed(((TakesScreenshot)WebApp.getDriver()).getScreenshotAs(OutputType.BYTES), "image/png");
-        }
-        //driver.close();
-        //driver.quit();
+    public void takeScreenshot(Scenario scenario) throws MalformedURLException {
+        scenario.embed(((TakesScreenshot)WebApp.getDriver()).getScreenshotAs(OutputType.BYTES), "image/png");
     }
 
 }
