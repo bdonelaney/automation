@@ -42,11 +42,11 @@ public class AllFeaturesRunner extends AbstractTestNGCucumberTests {
 //    }
 
    // @After("@selenium")
-    @After
+    //@After
     @AfterMethod
    // @AfterSuite(alwaysRun = true)
     //@AfterMethod (alwaysRun = true)
-    public void takeScreenshot(Scenario scenario) throws IOException {
+    public void takeScreenshot() throws IOException {
         long epochTime = new Date().getTime();
         //scenario.embed(((TakesScreenshot)WebApp.getDriver()).getScreenshotAs(OutputType.BYTES), "image/png");
         FileUtils.moveFile(((TakesScreenshot) WebApp.getDriver()).getScreenshotAs(OutputType.FILE), new File("screenshot" + epochTime + ".png"));
